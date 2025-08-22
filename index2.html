@@ -5,49 +5,46 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>VASH — Product Showcase</title>
 <style>
-  :root{ --ink:#0a0a0a; --muted:#6b7280; --line:#e5e7eb; }
-  *{box-sizing:border-box}
-  html,body{margin:0;padding:0;background:#fff;color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
+  body{margin:0;padding:0;background:#fff;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif}
 
-  .wrap{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:5px}
-  .stage{max-width:950px;width:95%; border:1px solid var(--line); border-radius:8px; overflow:hidden;}
+  .wrap{display:flex;align-items:center;justify-content:center;padding:10px}
+  .stage{width:100%;max-width:1024px;border:1px solid #e5e7eb;border-radius:8px;overflow:hidden}
 
-  header{display:grid;place-items:center;padding:4px 0}
-  header img{height:36px;width:auto;object-fit:contain}
+  header{text-align:center;padding:6px 0}
+  header img{height:40px;width:auto}
 
-  .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;align-items:start;padding:0 6px 6px}
-  @media (max-width: 900px){.grid{grid-template-columns:1fr;gap:8px}}
+  /* Always two-column table layout */
+  .grid{display:table;width:100%;table-layout:fixed}
+  .grid > section, .grid > aside{display:table-cell;vertical-align:top;width:50%;padding:8px}
 
-  .product{display:grid;grid-template-columns:1fr 1fr;align-items:start;gap:10px}
-  @media (max-width: 250px){.product{grid-template-columns:1fr}}
+  /* Bottle frame */
+  .media-frame{width:100%;max-width:360px;height:450px;background:#fff;border-radius:6px;overflow:hidden;margin:0 auto;text-align:center}
+  .media-frame img{max-width:100%;max-height:100%;height:auto;width:auto;display:inline-block}
 
-  .media-frame{width:100%;max-width:420px;aspect-ratio:4/5;background:#fff;border-radius:6px;overflow:hidden;display:grid;place-items:center;}
-  .media-frame img{width:100%;height:100%;object-fit:contain;}
+  h1{margin:5px 0;font-size:14px}
+  .desc{margin:0 0 6px;color:#374151;line-height:1.3;font-size:10px}
 
-  h1{margin:0 0 2px;font-size:11px;letter-spacing:.02em}
-  .desc{margin:0 0 4px;color:#374151;line-height:1.3;font-size:8px}
+  .meter{margin:4px 0}
+  .meter-head{display:flex;justify-content:space-between;font-size:9px}
+  .meter-track{height:5px;border-radius:10px;background:#eceff3;position:relative}
+  .meter-fill{position:absolute;left:0;top:0;height:100%;border-radius:10px;background:linear-gradient(90deg,#c7f9ff,#8ec5ff)}
+  .meter-scale{display:flex;justify-content:space-between;font-size:8px;color:#6b7280;margin-top:2px}
 
-  .meter{margin:3px 0 4px}
-  .meter-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:2px;font-size:6px;color:#111}
-  .meter-track{height:3px;border-radius:999px;background:#eceff3;position:relative}
-  .meter-fill{position:absolute;left:0;top:0;height:100%;border-radius:999px;background:linear-gradient(90deg,#c7f9ff,#8ec5ff)}
-  .meter-scale{display:flex;justify-content:space-between;font-size:5px;color:#6b7280;margin-top:2px}
+  .badges{margin-top:4px}
+  .badge{display:inline-block;font-size:9px;padding:2px 6px;margin-right:3px;margin-bottom:3px;border-radius:10px;background:#f5f6f7}
 
-  .badges{display:flex;gap:3px;flex-wrap:wrap;margin:2px 0 0}
-  .badge{font-size:5px;padding:2px 5px;border-radius:999px;background:#f5f6f7}
-
-  .flavors{display:flex;gap:4px;flex-wrap:wrap;margin-top:6px}
-  .flavor-btn{width:20px;height:20px;border:none;border-radius:999px;cursor:pointer;background:#f3f4f6 center/cover no-repeat;box-shadow:0 0 0 1px #e5e7eb inset;}
+  .flavors{margin-top:6px}
+  .flavor-btn{width:28px;height:28px;border:none;border-radius:50%;cursor:pointer;background:#f3f4f6 center/cover no-repeat;box-shadow:0 0 0 1px #e5e7eb inset;margin:2px}
   .flavor-btn[aria-pressed="true"]{box-shadow:0 0 0 2px #111 inset}
-  .flavor-btn:focus{outline:1px solid #111; outline-offset:1px}
 
-  .screen{max-width:420px;width:100%;aspect-ratio:16/9;border-radius:6px;overflow:hidden;background:#000;position:relative}
-  .screen iframe{width:100%;height:100%;border:0;}
+  /* Video block */
+  .screen{width:100%;max-width:360px;height:202px;border-radius:6px;overflow:hidden;background:#000;margin:0 auto}
+  .screen video{width:100%;height:100%;object-fit:cover;display:block}
 </style>
 </head>
 <body>
 <div class="wrap">
-  <div class="stage" role="region" aria-label="VASH Product Showcase">
+  <div class="stage">
 
     <header>
       <img src="https://vashvapes.com/cdn/shop/files/LOGO-removebg-preview.png?height=60&v=1753209219" alt="VASH" />
@@ -56,7 +53,7 @@
     <div class="grid">
       <section class="product" aria-label="Product">
         <div class="media-frame">
-          <a id="heroLink" class="clean" href="https://vashvapes.com/cdn/shop/files/1.png?v=1753208517&width=800" target="_blank" rel="noopener">
+          <a id="heroLink" href="https://vashvapes.com/cdn/shop/files/1.png?v=1753208517&width=800" target="_blank">
             <img id="heroBottle" src="https://vashvapes.com/cdn/shop/files/1.png?v=1753208517&width=800" alt="Cheesecake" />
           </a>
         </div>
@@ -64,7 +61,7 @@
           <h1 id="flavorName">Cheesecake</h1>
           <p id="flavorDesc" class="desc">Rich, creamy notes layered over a smooth inhale, crafted for discreet all-day enjoyment without visible vapour.</p>
 
-          <div class="meter" aria-label="Menthol level">
+          <div class="meter">
             <div class="meter-head"><span>Menthol</span><span id="mentholValue">0%</span></div>
             <div class="meter-track"><div id="mentholFill" class="meter-fill" style="width:0%"></div></div>
             <div class="meter-scale"><span>None</span><span>Light</span><span>Medium</span><span>Strong</span></div>
@@ -104,51 +101,50 @@
         </div>
       </section>
 
-      <aside aria-label="Video" class="device">
+      <aside aria-label="Video">
         <div class="screen">
-          <iframe src="https://www.youtube.com/embed/zjtegz4JwMY?autoplay=1&mute=1&loop=1&playlist=zjtegz4JwMY&controls=0&playsinline=1" 
-                  title="YouTube video player" 
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                  allowfullscreen>
-          </iframe>
+          <video autoplay muted loop playsinline preload="auto">
+            <source src="https://vashvapes.com/cdn/shop/files/vash-promo.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
         </div>
       </aside>
     </div>
   </div>
 </div>
 <script>
-  var hero = document.getElementById('heroBottle');
-  var heroLink = document.getElementById('heroLink');
-  var nameEl = document.getElementById('flavorName');
-  var descEl = document.getElementById('flavorDesc');
-  var mentholFill = document.getElementById('mentholFill');
-  var mentholValue = document.getElementById('mentholValue');
+  var hero=document.getElementById('heroBottle');
+  var heroLink=document.getElementById('heroLink');
+  var nameEl=document.getElementById('flavorName');
+  var descEl=document.getElementById('flavorDesc');
+  var mentholFill=document.getElementById('mentholFill');
+  var mentholValue=document.getElementById('mentholValue');
 
   function setMenthol(pct){
-    var v = Math.max(0, Math.min(100, Number(pct)||0));
-    mentholFill.style.width = v + '%';
-    mentholValue.textContent = v + '%';
+    var v=Math.max(0,Math.min(100,Number(pct)||0));
+    mentholFill.style.width=v+'%';
+    mentholValue.innerHTML=v+'%';
   }
   setMenthol(0);
 
-  document.getElementById('flavorButtons').onclick = function(e){
-    var btn = e.target || e.srcElement;
-    if(!btn || btn.className.indexOf('flavor-btn') === -1) return;
+  document.getElementById('flavorButtons').onclick=function(e){
+    var btn=e.target||e.srcElement;
+    if(!btn||btn.className.indexOf('flavor-btn')===-1) return;
 
-    var buttons = document.getElementById('flavorButtons').getElementsByTagName('button');
+    var buttons=document.getElementById('flavorButtons').getElementsByTagName('button');
     for(var i=0;i<buttons.length;i++){buttons[i].setAttribute('aria-pressed','false');}
     btn.setAttribute('aria-pressed','true');
 
-    var name = btn.getAttribute('data-name');
-    var img = btn.getAttribute('data-img');
-    var href = btn.getAttribute('data-href');
-    var desc = btn.getAttribute('data-desc');
-    var menthol = btn.getAttribute('data-menthol');
+    var name=btn.getAttribute('data-name');
+    var img=btn.getAttribute('data-img');
+    var href=btn.getAttribute('data-href');
+    var desc=btn.getAttribute('data-desc');
+    var menthol=btn.getAttribute('data-menthol');
 
-    if(img){ hero.src = img; hero.alt = name; }
-    if(href){ heroLink.href = href; }
-    nameEl.textContent = name; 
-    descEl.textContent = desc;
+    if(img){hero.src=img;hero.alt=name;}
+    if(href){heroLink.href=href;}
+    nameEl.innerHTML=name;
+    descEl.innerHTML=desc;
     setMenthol(menthol);
   };
 </script>
