@@ -10,8 +10,8 @@
   .wrap{display:flex;align-items:center;justify-content:center;padding:10px}
   .stage{width:100%;max-width:1024px;border:1px solid #e5e7eb;border-radius:8px;overflow:hidden}
 
-  header{text-align:center;padding:6px 0}
-  header img{height:40px;width:auto}
+  header{text-align:center;padding:10px 0}
+  header img{height:200px;width:auto} /* 5x bigger logo */
 
   .grid{display:table;width:100%;table-layout:fixed}
   .grid > section, .grid > aside{display:table-cell;vertical-align:top;width:50%;padding:8px}
@@ -36,8 +36,8 @@
   .flavor-btn{width:32px;height:32px;border:none;border-radius:50%;cursor:pointer;background:#f3f4f6 center/cover no-repeat;box-shadow:0 0 0 1px #e5e7eb inset;margin:3px}
   .flavor-btn[aria-pressed="true"]{box-shadow:0 0 0 2px #111 inset}
 
-  /* Video block stays wider */
-  .screen{width:100%;max-width:360px;height:202px;border-radius:6px;overflow:hidden;background:#000;margin:0 auto}
+  /* Video block taller and full width */
+  .screen{width:100%;height:300px;border-radius:0;overflow:hidden;background:#000;margin:0}
   .screen video{width:100%;height:100%;object-fit:cover;display:block}
 </style>
 </head>
@@ -46,7 +46,7 @@
   <div class="stage">
 
     <header>
-      <img src="https://vashvapes.com/cdn/shop/files/LOGO-removebg-preview.png?height=60&v=1753209219" alt="VASH" />
+      <img src="https://vashvapes.com/cdn/shop/files/LOGO-removebg-preview.png?height=300&v=1753209219" alt="VASH" />
     </header>
 
     <div class="grid">
@@ -72,8 +72,31 @@
             <span class="badge">Vapourless</span>
           </div>
 
+          <!-- Flavors back -->
           <div class="flavors" id="flavorButtons">
-            <!-- Buttons unchanged -->
+            <button class="flavor-btn" aria-label="Cheesecake" aria-pressed="true"
+              style="background-image:url('https://www.shutterstock.com/image-vector/pixel-art-cheesecake-retro-8-260nw-2330503737.jpg')"
+              data-name="Cheesecake" data-menthol="0" data-desc="Rich, creamy notes layered over a smooth inhale, crafted for discreet all-day enjoyment without visible vapour."
+              data-img="https://vashvapes.com/cdn/shop/files/1.png?v=1753208517&width=600"
+              data-href="https://vashvapes.com/cdn/shop/files/1.png?v=1753208517&width=600"></button>
+
+            <button class="flavor-btn" aria-label="Lush Ice"
+              style="background-image:url('https://www.shutterstock.com/image-vector/red-watermelon-pixel-art-fruit-600w-2388385759.jpg')"
+              data-name="Lush Ice" data-menthol="50" data-desc="Cooling watermelon lift with a crisp finish — refreshing and subtle."
+              data-img="https://vashvapes.com/cdn/shop/files/2.png?v=1753208561&width=600"
+              data-href="https://vashvapes.com/cdn/shop/files/2.png?v=1753208561&width=600"></button>
+
+            <button class="flavor-btn" aria-label="Cherry"
+              style="background-image:url('https://www.shutterstock.com/image-illustration/pixel-art-cherry-icon-game-260nw-744336475.jpg')"
+              data-name="Cherry" data-menthol="20" data-desc="Bright cherry body with gentle sweetness; elegant, no lingering clouds."
+              data-img="https://vashvapes.com/cdn/shop/files/3.png?v=1753208614&width=600"
+              data-href="https://vashvapes.com/cdn/shop/files/3.png?v=1753208614&width=600"></button>
+
+            <button class="flavor-btn" aria-label="VCT"
+              style="background-image:url('https://media.istockphoto.com/id/1146937503/vector/vanilla-orchid-flower-and-dried-vanilla-pod-8-bit-pixel-art-icon-isolated-on-white-food.jpg?s=612x612&w=0&k=20&c=NHeqPi62LOT9uHSKyexIyyQSvMq5lgTFP_CBi0H0pyk=')"
+              data-name="VCT" data-menthol="0" data-desc="Vanilla, custard, and tobacco harmonised for a timeless, refined draw."
+              data-img="https://vashvapes.com/cdn/shop/files/4.png?v=1753208587&width=600"
+              data-href="https://vashvapes.com/cdn/shop/files/4.png?v=1753208587&width=600"></button>
           </div>
         </div>
       </section>
